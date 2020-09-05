@@ -6,3 +6,13 @@ services:
     build: .
     ports:
       - "8080:8080"
+    volumes:
+      - "./:/go/src/app"
+    command: refresh
+  mongo:
+    image: mongo
+    container_name: mongo
+    hostname: mongo
+    restart: always
+    ports:
+    - "27017:27017"

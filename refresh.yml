@@ -1,0 +1,16 @@
+app_root: .
+silent: true
+ignored_folders:
+  - vendor
+  - log
+  - tmp
+included_extensions:
+  - .go
+force_polling: true
+build_path: /tmp
+build_delay: 200ns
+build_target_path: "./cmd/"
+binary_name: main
+command_flags: ["--env", "development"]
+command_env: ["PORT=1234"]
+enable_colors: true

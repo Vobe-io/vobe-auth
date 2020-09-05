@@ -1,0 +1,11 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Just plain old shell command. You could use `make` as well.
+cmd = "go build -o ./tmp/main ./cmd/main.go"
+bin = "tmp/main"
+send_interrupt = true
+
+[misc]
+clean_on_exit = true
