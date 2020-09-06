@@ -13,6 +13,7 @@ POST http://[::1]:8080/signup
 Content-Type: application/json
 
 {
-  "username": "comesa",
-  "password": "cock"
+  "username": "tdmux",
+  "email": "yeet",
+  "password": "yote"
 }
