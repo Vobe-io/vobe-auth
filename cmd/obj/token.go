@@ -3,17 +3,18 @@ package obj
 import (
 	"errors"
 	"fmt"
+	"time"
+	"vobe-auth/cmd/db"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	"time"
-	"vobe-auth/cmd/db"
 )
 
 type Token struct {
-	ID         primitive.ObjectID `bson:"_id"`
-	User       primitive.ObjectID
-	Expiration int64
+	ID         primitive.ObjectID `bson:"_id" json:"id"`
+	User       primitive.ObjectID `bson:"user" json:"user"`
+	Expiration int64              `bson:"expiration" json:"expiration"`
 }
 
 func (t Token) IsValid(u User) bool {

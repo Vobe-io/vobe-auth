@@ -33,7 +33,10 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func sendRes(w http.ResponseWriter, status status.Status) {
-	w.Header().Set("content-type", "application/json")
+	header := w.Header()
+	header.Set("Access-Control-Allow-Origin", "*")
+	header.Set("Referrer-Policy", "no-referrer")
+	header.Set("content-type", "application/json")
 	res, err := json.Marshal(status)
 
 	if err != nil {
@@ -67,7 +70,7 @@ func main() {
 	}
 	routeHandler = RouteMap{
 		"signup": routes.Signup,
-		"login":  routes.Login,
+		"signin": routes.Login,
 		"auth":   routes.Auth,
 	}
 

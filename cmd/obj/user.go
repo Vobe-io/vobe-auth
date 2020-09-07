@@ -4,13 +4,14 @@ import (
 	"crypto/sha512"
 	"errors"
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
 	"io"
 	"log"
 	"strings"
 	"vobe-auth/cmd/db"
+
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type User struct {
@@ -55,6 +56,7 @@ func (u User) GetTokens() []Token {
 
 	return _tokens
 }
+
 func FindUser(bson bson.M) (*User, error) {
 	singleRes := db.GetCollection("users").FindOne(*db.CTX, bson)
 	return WrapSingleRes(singleRes)
